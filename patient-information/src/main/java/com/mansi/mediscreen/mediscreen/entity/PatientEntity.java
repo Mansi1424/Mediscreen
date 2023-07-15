@@ -1,25 +1,32 @@
 package com.mansi.mediscreen.mediscreen.entity;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "patients", schema="PATIENT_DB")
 public class PatientEntity {
 
     @Id
-    private long id;
-
+    private long patient_id;
     private String name;
-    private String familyName;
-    private String dateOfBirth;
+    private String family_name;
+    private String DOB;
     private String sex;
-    private String homeAddress;
-    private String phoneNumber;
+    private String home_address;
+    private String phone_number;
 
+    @Override
+    public String toString() {
+        return "PatientEntity{" +
+                "patient_id=" + patient_id +
+                ", name='" + name + '\'' +
+                ", family_name='" + family_name + '\'' +
+                ", DOB='" + DOB + '\'' +
+                ", sex='" + sex + '\'' +
+                ", home_address='" + home_address + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                '}';
+    }
 }
